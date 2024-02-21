@@ -2,7 +2,7 @@ package org.online.springocms.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
+//ddd
 @Data
 @Entity
 @Table(name = "users")
