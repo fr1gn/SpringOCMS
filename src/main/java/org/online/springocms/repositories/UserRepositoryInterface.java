@@ -7,4 +7,8 @@ public interface UserRepositoryInterface extends JpaRepository<User, Integer> {
     boolean createUser(User user);
     User getUser(int userId);
     List<User> getAllUsers();
+
+    List<User> getAll();
+
+    User create(User user);
 }
