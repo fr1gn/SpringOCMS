@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("enrollments")
-
+@RequestMapping("/enrollments")
 public class EnrollmentController {
 
     private final EnrollServiceInterface service;
@@ -18,17 +17,17 @@ public class EnrollmentController {
         this.service = service;
     }
 
-    @PostMapping("/enroll")
-    public ResponseEntity<String> enrollUserInCourse(@RequestParam("userId") int userId,
-                                                     @RequestParam("courseId") int courseId) {
+    @PostMapping("/enroll/{user_id}/{course_id}")
+    public ResponseEntity<String> enrollUserInCourse(@PathVariable("user_id") int userId,
+                                                     @PathVariable("course_id") int courseId) {
         service.enrollUserInCourse(userId, courseId);
         return new ResponseEntity<>("User successfully enrolled in the course", HttpStatus.OK);
     }
 
-    @GetMapping("/getAllEnrollments")
+
+    @GetMapping("/getAll")
     public List<Enrollment> getAllEnrollments(){
         return service.getAllEnrollments();
     }
-
-
 }
+
