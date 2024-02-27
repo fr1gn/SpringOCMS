@@ -1,25 +1,33 @@
 package org.online.springocms.controllers;
 
-import org.online.springocms.repositories.CourseRepositoryInterface;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.online.springocms.models.Course;
+import org.online.springocms.services.interfaces.CourseServiceInterface;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("courses")
 
 public class CourseController {
-    private final CourseRepositoryInterface service;
 
-    public CourseController(CourseRepositoryInterface service) {
+    private final CourseServiceInterface service;
+
+    public CourseController(CourseServiceInterface service) {
         this.service = service;
     }
 
-    @RestController
-    @RequestMapping("courses")
-    public class EnrollmentController {
-        @GetMapping("name")
-        public String listOfCourses(){
-            return "Java" +
-                    "\nC++" +
-                    "\nC#";
-        }
+    @GetMapping("/")
+    public List<Course> getAllCourses(){
+        return service.getAllCourses();
+    }
+    @GetMapping("/{course_id}")
+    public ResponseEntity<Course> getCourseById(@PathVariable("course_id") int id){
+        Course course = service.getCourseById(id);
+        if(course == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(course, HttpStatus.OK);
     }
 }

@@ -6,6 +6,7 @@ import org.online.springocms.services.interfaces.CourseServiceInterface;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 
 public class CourseService implements CourseServiceInterface {
@@ -16,17 +17,13 @@ public class CourseService implements CourseServiceInterface {
     }
 
     @Override
-    public List<Course> getAll() {
-        return null;
+    public List<Course> getAllCourses() {
+        return repo.findAll();
     }
 
     @Override
-    public Course getById(int id) {
-        return null;
+    public Course getCourseById(int id) {
+        return repo.findById(id).orElse(null);
     }
 
-    @Override
-    public Course create(Course course) {
-        return null;
-    }
 }
