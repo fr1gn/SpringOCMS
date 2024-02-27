@@ -1,12 +1,9 @@
 package org.online.springocms.controllers;
+
 import org.online.springocms.models.User;
 import org.online.springocms.repositories.UserRepositoryInterface;
-import org.online.springocms.models.User;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.json.GsonBuilderUtils;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -27,6 +24,7 @@ public class UserController {
     @GetMapping("/")
     public List<User> getAll(){
 
+        return null;
     }
     @GetMapping("/{user_id}")
     public ResponseEntity<User> getByUserId(@PathVariable("user_id") int id){

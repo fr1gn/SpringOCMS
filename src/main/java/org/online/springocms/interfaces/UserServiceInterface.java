@@ -1,6 +1,6 @@
 package org.online.springocms.interfaces;
 import org.online.springocms.models.User;
-
+import java.util.List;
 
 
 public interface UserServiceInterface {
