@@ -17,7 +17,7 @@ public class EnrollmentController {
         this.service = service;
     }
 
-    @PostMapping("/enroll/{user_id}/{course_id}")
+    @RequestMapping(value = "/enroll/{user_id}/{course_id}", method = {RequestMethod.GET, RequestMethod.POST})
     public ResponseEntity<String> enrollUserInCourse(@PathVariable("user_id") int userId,
                                                      @PathVariable("course_id") int courseId) {
         service.enrollUserInCourse(userId, courseId);
