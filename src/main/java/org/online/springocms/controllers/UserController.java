@@ -1,21 +1,19 @@
 package org.online.springocms.controllers;
 
-import org.online.springocms.models.Enrollment;
 import org.online.springocms.models.User;
-import org.online.springocms.repositories.UserRepositoryInterface;
+import org.online.springocms.services.interfaces.UserServiceInterface;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 @RestController
 @RequestMapping("users")
 public class UserController {
 
-    private final UserRepositoryInterface service;
+    private final UserServiceInterface service;
 
-    public UserController(UserRepositoryInterface service) {
+    public UserController(UserServiceInterface service) {
         this.service = service;
 }
     @GetMapping("hello")
@@ -24,12 +22,11 @@ public class UserController {
     }
     @GetMapping("/")
     public List<User> getAll(){
-
-        return null;
+        return service.getAll();
     }
     @GetMapping("/{user_id}")
     public ResponseEntity<User> getByUserId(@PathVariable("user_id") int id){
-        User user = service.getById(id);
+        User user = service.getByUserId(id);
         if(user == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND); //404
 
@@ -46,8 +43,7 @@ public class UserController {
     }
     @GetMapping("/getAll")
     public List<User> getAllController(){
-        return service.getAllController();
+        return service.getAll();
     }
     }
-
-}
+    
