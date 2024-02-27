@@ -1,34 +1,33 @@
 package org.online.springocms.services;
 import org.online.springocms.models.User;
-import org.online.springocms.repositories.UserRepositoryInterface;
+
 import org.online.springocms.services.interfaces.UserServiceInterface;
 
 import java.util.List;
 public class UserService implements UserServiceInterface{
-    private final UserRepositoryInterface repo;
-    public UserService(UserRepositoryInterface repo) {
+    private final UserServiceInterface repo;
+    public UserService(UserServiceInterface repo) {
         this.repo = repo;
     }
 
     @Override
     public List<User> getAll() {
-        return repo.getAllUsers();
+        return repo.getAll();
     }
 
     @Override
-    public User getByUserId(int id) {
+    public User getUserById(int id) {
         return repo.getUserById(id);
     }
 
     @Override
-    public User create(User user) {
+    public User createUser(User user) {
         User createdUser = repo.createUser(user);
 
         return createdUser;
     }
-
     @Override
-    public List<User> getByFirstname(String firstname) {
+    public List<User> getUsersByFirstname(String firstname) {
         return repo.getUsersByFirstName(firstname);
     }
 }

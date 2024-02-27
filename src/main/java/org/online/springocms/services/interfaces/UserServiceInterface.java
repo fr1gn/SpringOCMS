@@ -6,9 +6,7 @@ import java.util.List;
 
 public interface UserServiceInterface {
     List<User> getAll();
-    User getByUserId(int id);
-    User create(User user);
-    List<User> getAllUsers();
+
 
     User getUserById(int id);
 
@@ -16,5 +14,5 @@ public interface UserServiceInterface {
 
     List<User> getUsersByFirstName(String firstname);
 
-    List<User> getByFirstname(String surname);
+    List<User> getUsersByFirstname(String firstname);
 }
