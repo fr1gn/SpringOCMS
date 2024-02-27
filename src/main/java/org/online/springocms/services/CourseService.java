@@ -11,7 +11,6 @@ import java.util.List;
 
 public class CourseService implements CourseServiceInterface {
     private final CourseRepositoryInterface repo;
-
     public CourseService(CourseRepositoryInterface repo) {
         this.repo = repo;
     }
@@ -22,8 +21,8 @@ public class CourseService implements CourseServiceInterface {
     }
 
     @Override
-    public Course getCourseById(int id) {
-        return repo.findById(id).orElse(null);
+    public Course getCourse(int courseId) {
+        return repo.findById(courseId).orElse(null);
     }
 
 }
