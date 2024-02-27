@@ -13,6 +13,4 @@ public interface UserServiceInterface {
     User createUser(User user);
 
     List<User> getUsersByFirstName(String firstname);
-
-    List<User> getUsersByFirstname(String firstname);
 }

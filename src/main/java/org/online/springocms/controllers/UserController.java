@@ -26,7 +26,7 @@ public class UserController {
     }
     @GetMapping("/{user_id}")
     public ResponseEntity<User> getByUserId(@PathVariable("user_id") int id){
-        User user = service.getByUserId(id);
+        User user = service.getUserById(id);
         if(user == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND); //404
 
@@ -35,7 +35,7 @@ public class UserController {
 //d
     @PostMapping("/")
     public ResponseEntity<User> create(@RequestBody User user){
-        User createdUser = service.create(user);
+        User createdUser = service.createUser(user);
         if(createdUser == null)
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 
@@ -46,4 +46,3 @@ public class UserController {
         return service.getAll();
     }
     }
-    
