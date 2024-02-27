@@ -1,5 +1,6 @@
 package org.online.springocms.controllers;
 
+import org.online.springocms.models.Enrollment;
 import org.online.springocms.models.User;
 import org.online.springocms.repositories.UserRepositoryInterface;
 import org.springframework.http.HttpStatus;
@@ -34,7 +35,7 @@ public class UserController {
 
         return new ResponseEntity<>(user, HttpStatus.OK); //200
     }
-//dddfggh
+//d
     @PostMapping("/")
     public ResponseEntity<User> create(@RequestBody User user){
         User createdUser = service.create(user);
@@ -43,10 +44,10 @@ public class UserController {
 
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
-
-    @GetMapping("/surname/{user_surname}")
-    public List<User> getAllByLastName(@PathVariable("user_FirstName") String FirstName){
-        return Collections.singletonList(service.getById(Integer.valueOf(FirstName)));
+    @GetMapping("/getAll")
+    public List<User> getAllController(){
+        return service.getAllController();
+    }
     }
 
 }
