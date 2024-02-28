@@ -26,8 +26,4 @@ public class UserService implements UserServiceInterface{
 
         return createdUser;
     }
-    @Override
-    public List<User> getUsersByFirstName(String firstname) {
-        return repo.getUsersByFirstName(firstname);
-    }
 }

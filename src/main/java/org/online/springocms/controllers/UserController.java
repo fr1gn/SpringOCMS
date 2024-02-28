@@ -16,10 +16,6 @@ public class UserController {
     public UserController(UserServiceInterface service) {
         this.service = service;
 }
-    @GetMapping("hello")
-    public String sayHello() {
-        return "Hello World";
-    }
     @GetMapping("/")
     public List<User> getAll(){
         return service.getAll();
