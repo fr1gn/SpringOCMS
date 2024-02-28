@@ -16,7 +16,7 @@ public class UserController {
     public UserController(UserServiceInterface service) {
         this.service = service;
 }
-    @GetMapping("/")
+    @GetMapping("/getAll")
     public List<User> getAll(){
         return service.getAll();
     }
@@ -29,7 +29,7 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK); //200
     }
 //d
-    @PostMapping("/")
+    @PostMapping("/create")
     public ResponseEntity<User> create(@RequestBody User user){
         User createdUser = service.createUser(user);
         if(createdUser == null)
