@@ -38,5 +38,9 @@ public class CourseController {
 
         return new ResponseEntity<>(createdCourse, HttpStatus.CREATED);
     }
+    @GetMapping("/name/{course_courseName}")
+    public List<Course> getAllBySurname(@PathVariable("course_courseName") String courseName){
+        return service.getByCourseName(courseName);
+    }
 
 }
