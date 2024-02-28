@@ -7,4 +7,6 @@ import java.util.List;
 public interface CourseServiceInterface {
     List<Course> getAllCourses();
     Course getCourse(int courseId);
+
+    Course create(Course course);
 }

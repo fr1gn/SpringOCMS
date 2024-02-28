@@ -30,4 +30,13 @@ public class CourseController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(course, HttpStatus.OK);
     }
+    @PostMapping("/create")
+    public ResponseEntity<Course> create(@RequestBody Course course){
+        Course createdCourse = service.create(course);
+        if(createdCourse == null)
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+        return new ResponseEntity<>(createdCourse, HttpStatus.CREATED);
+    }
+
 }
