@@ -16,8 +16,8 @@ public class UserService implements UserServiceInterface{
     }
 
     @Override
-    public User getUserById(int id) {
-        return repo.getUserById(id);
+    public User getUserById(int userId) {
+        return repo.getUserById(userId);
     }
 
     @Override
