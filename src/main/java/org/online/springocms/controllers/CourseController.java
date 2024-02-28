@@ -19,7 +19,7 @@ public class CourseController {
         this.service = service;
     }
 
-    @GetMapping("/")
+    @GetMapping("/getAll")
     public List<Course> getAllCourses(){
         return service.getAllCourses();
     }
