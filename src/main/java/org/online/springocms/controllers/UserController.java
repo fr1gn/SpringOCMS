@@ -37,8 +37,4 @@ public class UserController {
 
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
-    @GetMapping("/getAll")
-    public List<User> getAllController(){
-        return service.getAll();
-    }
     }
