@@ -17,7 +17,7 @@ public class UserService implements UserServiceInterface{
     public List<User> getAll() {
         return repo.findAll();
     }
-
+//dd
     @Override
     public User getUserById(int userId) {
         return repo.findById(userId).orElse(null);
