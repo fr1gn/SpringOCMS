@@ -25,4 +25,15 @@ public class CourseService implements CourseServiceInterface {
         return repo.findById(courseId).orElse(null);
     }
 
+    @Override
+    public Course create(Course course) {
+        return repo.save(course);
+    }
+
+    @Override
+    public List<Course> getByCourseName(String courseName) {
+        return repo.findByCourseName(courseName);
+    }
+
+
 }

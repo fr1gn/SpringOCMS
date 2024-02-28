@@ -9,4 +9,6 @@ public interface CourseServiceInterface {
     Course getCourse(int courseId);
 
     Course create(Course course);
+    List<Course> getByCourseName(String courseName);
+
 }
