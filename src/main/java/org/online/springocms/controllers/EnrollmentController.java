@@ -24,6 +24,11 @@ public class EnrollmentController {
         return new ResponseEntity<>("User successfully enrolled in the course", HttpStatus.OK);
     }
 
+    @GetMapping("/getEnrollmentsByUserId/{userId}")
+    public List<Enrollment> getEnrollmentsByUserId(@PathVariable("userId") int userId){
+        return service.getEnrollmentsByUserId(userId);
+    }
+
 
     @GetMapping("/getAll")
     public List<Enrollment> getAllEnrollments(){
