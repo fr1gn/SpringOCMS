@@ -8,5 +8,5 @@ public interface EnrollServiceInterface {
     // Default operations for enrollment
     void enrollUserInCourse(int userId, int courseId);
     List<Enrollment> getAllEnrollments();
-    List<Enrollment> getEnrollmentsByUserId( int userId);
+    List<Enrollment> getEnrollmentsByUserId(int userId);
 }
